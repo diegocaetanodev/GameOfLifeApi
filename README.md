@@ -1,2 +1,2 @@
 # GameOfLifeApi
-Conway's Gane Of Life
+Conway's Game Of Life
