@@ -52,16 +52,10 @@ The **Game of Life API** is a RESTful service that simulates Conway's Game of Li
 
 ### 1. **Add a New Board**
 - **POST** `/api/GameOfLife/add`
-- **Request Body**:
-   
-{ "rows": 3, "columns": 3, "state": [ [0, 1, 0], [1, 0, 1], [0, 1, 0] ] }
+- **Request Body**: { "rows": 3, "columns": 3, "state": [ [0, 1, 0], [1, 0, 1], [0, 1, 0] ] }
 
 - **Response**:
-  - **201 Created**:
-    
-{
-  "BoardId": "123e4567-e89b-12d3-a456-426614174000"
-}
+  - **201 Created**: { "BoardId": "123e4567-e89b-12d3-a456-426614174000" }
 
   - **400 Bad Request**: Invalid board data.
 
@@ -91,6 +85,18 @@ The **Game of Life API** is a RESTful service that simulates Conway's Game of Li
 - **GET** `/api/GameOfLife/{boardId}/next`
 - **Response**:
   - **200 OK**: Returns the next state of the board.
+
+{
+  "id": "123e4567-e89b-12d3-a456-426614174000",
+  "rows": 3,
+  "columns": 3,
+  "state": [
+    [0, 1, 0],
+    [1, 0, 1],
+    [0, 1, 0]
+  ]
+}  
+
   - **404 Not Found**: Board not found.
 
 ---
@@ -99,6 +105,18 @@ The **Game of Life API** is a RESTful service that simulates Conway's Game of Li
 - **GET** `/api/GameOfLife/{boardId}/steps/{steps}`
 - **Response**:
   - **200 OK**: Returns the state of the board after the specified steps.
+
+{
+  "id": "123e4567-e89b-12d3-a456-426614174000",
+  "rows": 3,
+  "columns": 3,
+  "state": [
+    [0, 1, 0],
+    [1, 0, 1],
+    [0, 1, 0]
+  ]
+}  
+
   - **404 Not Found**: Board not found.
 
 ---
@@ -107,6 +125,17 @@ The **Game of Life API** is a RESTful service that simulates Conway's Game of Li
 - **GET** `/api/GameOfLife/{boardId}/final/{maxAttempts}`
 - **Response**:
   - **200 OK**: Returns the final state of the board.
+
+{
+  "id": "123e4567-e89b-12d3-a456-426614174000",
+  "rows": 3,
+  "columns": 3,
+  "state": [
+    [0, 1, 0],
+    [1, 0, 1],
+    [0, 1, 0]
+  ]
+}  
   - **404 Not Found**: Board not found.
   - **400 Bad Request**: Final state not reached within the maximum attempts.
 
@@ -144,8 +173,5 @@ curl -X GET http://localhost:5000/api/GameOfLife/123e4567-e89b-12d3-a456-4266141
 ## Contributing
 Contributions are welcome! Please fork the repository and submit a pull request.
 
----
 
-## License
-This project is licensed under the MIT License.
 
